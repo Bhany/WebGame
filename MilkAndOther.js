@@ -213,14 +213,16 @@ function isWithinRadius(x, y, obj, radius) {
 
 //global function to check collision with player
 function hasCollidedWithPlayer(obj) {
-	return !(((obj.y + obj.height) < player.y)
-			|| (obj.y > (player.y + player.height))
-			|| (obj.x > (player.x + player.width))
-			|| ((obj.x + obj.width) < player.x));
+	return ((player.x < (obj.x + obj.width))  
+			 && ((player.x + player.width) > obj.x) 
+			 && (player.y < (obj.y + obj.height))
+			 && ((player.y + player.height) > obj.y));
 }
 
 //global function to check collision between any two objects
 function hasCollided(obj1, obj2) {
-	return (obj1.x > obj2.x && obj1.x < obj2.x + obj2.width
-			&& obj1.y > obj2.y && obj1.y < obj2.y + obj2.height);
+	return ((obj1.x < (obj2.x + obj2.width))  
+			 && ((obj1.x + obj1.width) > obj2.x) 
+			 && (obj1.y < (obj2.y + obj2.height))
+			 && ((obj1.y + obj1.height) > obj2.y));
 }

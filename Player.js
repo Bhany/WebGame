@@ -77,9 +77,11 @@ Player.prototype.update = function() {
 	if (isMouseDown) {}
 
 	//Draws the player
+    
 	this.width = michaelImage.width/7;
 	this.height = michaelImage.height/7;
-	game.drawImage(michaelImage, this.x, this.y, this.width, this.height);
+	game.fillRect(this.x,this.y, this.width, this.height);
+	// game.drawImage(michaelImage, this.x, this.y, this.width, this.height);
 
 	//Movement
 

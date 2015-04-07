@@ -77,11 +77,12 @@ Level.prototype.spawnEnemies = function()
 };
 
 Level.prototype.update = function() {
-	//Boss spawn
+	/* Boss spawn
 	if (score >= 30)
 	{
 		this.hasBossSpawned = true;
 	}
+	*/
 
 	//spawn timers
 	this.milkTimer++;
@@ -129,8 +130,10 @@ Level.prototype.update = function() {
 			this.enemies.splice(i, 1);
 		}
 
+
+
 		//update boss missiles
-		for (i = 0; i < m.length; i++)
+		for (i = 0; i < ((this.enemies[0]).missiles).length; i++)
 		{
 			if (hasCollidedWithPlayer(m[i]))
 			{

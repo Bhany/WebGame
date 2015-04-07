@@ -66,8 +66,8 @@ Enemy.prototype.update = function() {
 		if (!this.isDead)
 		{
 			score+=this.scoreValue;
-			this.soundDeath.currentTime = 0;
-			this.soundDeath.play();
+			//this.soundDeath.currentTime = 0;
+			//this.soundDeath.play();
 
 			currentLevel.animations.push(new AnimationSprite(this.x, this.y, "text", ("+" + this.scoreValue), "white", 30));
 		}
