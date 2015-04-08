@@ -1,0 +1,18 @@
+Version Log.
+
+- 4/7 
+	DONE ::
+		basic collision detection revised 
+	TODO ::
+		make the object circular 
+		fix the missile on both player and the boss
+		fix the sound
+		player, enemy hp bar + their icon 
+	MEMO :: 
+		boss is totally commented out
+	IDEA :: 
+		Quadtree implementation
+		wasd firing system - ask me
+		abilities - 1234
+
+
