@@ -22,7 +22,29 @@ function Enemy(x,y,scoreVal,attackdmg, health, speed) {
 	this.soundDeath = $("#sound_enemydeath").get(0);
 	this.soundDeath.volume = .3;
 	*/
+
+	// r = argument radius
+	/*
+	Circle code  
+
+	this.radius = r;
+	this.retArea = getTheArea;
+	this.retCirc = function () { return ( Math.PI * this.radius * 2 ); };
+    this.mvBy = mvCclBy; 
+    */
 }
+
+/*
+Circle code
+
+function getTheArea() {
+  return ( Math.PI * this.radius * this.radius );
+}
+function mvCclBy(xDis,yDis) {
+  this.xcoord += xDis;
+  this.ycoord += yDis;
+}
+*/
 
 //determines where to move the enemy
 //the enemy just moves towards the player

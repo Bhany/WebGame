@@ -15,4 +15,8 @@ Version Log.
 		wasd firing system - ask me
 		abilities - 1234
 
-
+- 4/21
+	DONE ::
+		added skeleton code to enemy.js transitioning to circle objects
+	TODO ::
+		not slack
