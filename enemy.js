@@ -2,8 +2,9 @@ function Enemy(x,y,scoreVal,attackdmg, health, speed) {
 	this.x = x;
 	this.y = y;
 
-	this.width = 50;
-	this.height = 50;
+	//this.width = 50;
+	//this.height = 50;
+	this.radius = 25;
 	this.scoreValue = scoreVal;
 	this.damage = attackdmg;
 	this.moveSpeed = speed;
@@ -104,12 +105,18 @@ Enemy.prototype.update = function() {
 };
 
 Enemy.prototype.draw = function() {
+	//draw the fill
+	game.beginPath();
+	game.fillStyle = "#FF9800";
+	var strokeAngle = (2*Math.PI) * (this.health / this.maxHealth);
+	game.arc(this.x,this.y, this.radius, 0, strokeAngle);
+	game.closePath();
+	game.fill();
+
 	//Draw the border
 	game.strokeStyle = "#FF9800";
-	game.strokeRect(this.x, this.y, this.width, this.height);
-
-	//draw the fill
-	game.fillStyle = "#FF9800";
-	var strokeHeight = this.height * (this.health / this.maxHealth);
-	game.fillRect(this.x,this.y, this.width, strokeHeight);
+	game.beginPath();
+	game.arc(this.x, this.y, this.radius, 0, 2*Math.PI, false);
+	game.closePath();
+	game.stroke();
 };

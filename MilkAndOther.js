@@ -54,6 +54,7 @@ function Projectile(x, y, xDest, yDest, speed, type) {
 	this.speed = speed;
 	this.shouldRemove = false;
 	this.type = type;
+	this.radius = 10;
 
 	var goX = Math.abs(xDest - this.x);
 	var goY = Math.abs(yDest - this.y);
@@ -81,14 +82,22 @@ Projectile.prototype.update = function() {
 Projectile.prototype.draw = function() {
 	if (this.type == "basic")
 	{
+		this.radius = 10;
 		game.fillStyle = "#1695A9";
-		game.fillRect(this.x, this.y, 10, 10);
+		game.beginPath();
+		game.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
+		game.closePath();
+		game.fill();
 	}
 
 	else if (this.type = "rocket")
 	{
+		this.radius = 20;
 		game.fillStyle = "#1695A3";
-		game.fillRect(this.x, this.y, 20, 20);
+		game.beginPath();
+		game.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
+		game.closePath();
+		game.fill();
 	}
 };
 
@@ -225,4 +234,24 @@ function hasCollided(obj1, obj2) {
 			 && ((obj1.x + obj1.width) > obj2.x) 
 			 && (obj1.y < (obj2.y + obj2.height))
 			 && ((obj1.y + obj1.height) > obj2.y));
+}
+
+//checks collision between objects with circular bounding box
+function circleCollision(obj1, obj2)
+{
+	if (obj1.x + obj1.radius + obj2.radius > obj2.x 
+	&& obj1.x < obj2.x + obj1.radius + obj2.radius
+	&& obj1.y + obj1.radius + obj2.radius > obj2.y 
+	&& obj1.y < obj2.y + obj1.radius + obj2.radius)
+	{
+	    //AABBs are overlapping
+	    var distance = Math.sqrt(Math.abs(obj1.x - obj2.x)*Math.abs(obj1.x - obj2.x)
+	    						+ Math.abs(obj1.y - obj2.y)*Math.abs(obj1.y - obj2.y));
+
+	    if (distance < obj1.radius + obj2.radius)
+	    {
+	    	//has collided
+	    	return true;
+	    }
+	}
 }

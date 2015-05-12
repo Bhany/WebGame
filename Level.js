@@ -66,13 +66,14 @@ Level.prototype.spawnEnemies = function()
 		{
 			this.music.play();
 		}
-		*/
+		
 
 		this.bossLoaded = true;
 
 		//clear the array of enemies before spawning boss
 		this.enemies.length = 0;
 		this.enemies.push(new firstBoss(gameWidth - gameWidth/2, 0));
+		*/
 	}
 };
 
@@ -188,7 +189,7 @@ Level.prototype.update = function() {
 		//missile collision
 		else {
 			for (j = 0; j < this.missiles.length; j++) {
-				if (hasCollided(this.missiles[j],this.enemies[i])) {
+				if (circleCollision(this.missiles[j],this.enemies[i])) {
 					this.missiles[j].interact(this.enemies[i]);
 					this.missiles[j].shouldRemove = true;
 				}
