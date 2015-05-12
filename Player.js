@@ -21,8 +21,11 @@ var currentAbility = basicAttack;
 function Player(x, y) {
 	this.x = x;
 	this.y = y;
-	this.width;
-	this.height;
+
+	this.radius = 30;
+	this.width = this.radius*2;
+	this.height = this.radius*2;
+
 	this.speed = 3;
 	this.maxHealth = 100;
 	this.health = 100;
@@ -78,9 +81,15 @@ Player.prototype.update = function() {
 
 	//Draws the player
     
-	this.width = michaelImage.width/7;
-	this.height = michaelImage.height/7;
-	game.fillRect(this.x,this.y, this.width, this.height);
+	//this.width = michaelImage.width/7;
+	//this.height = michaelImage.height/7;
+	game.beginPath();
+	game.arc(this.x,this.y, this.radius, 0, 2*Math.PI, false);
+	game.closePath();
+	game.fillStyle = "#FFFFFF";
+	game.fill();
+
+	//game.fillRect(this.x,this.y, this.width, this.height);
 	// game.drawImage(michaelImage, this.x, this.y, this.width, this.height);
 
 	//Movement
